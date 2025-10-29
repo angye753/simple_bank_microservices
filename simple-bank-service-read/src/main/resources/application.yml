@@ -1,0 +1,30 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /api
+
+spring:
+  main:
+    web-application-type: servlet
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: always
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  kafka:
+    consumer:
+      group-id: bank-service-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: rabobank.simple_bank_service.*
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 3600000

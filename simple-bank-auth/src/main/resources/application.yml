@@ -1,0 +1,23 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /api
+
+spring:
+  main:
+    web-application-type: servlet
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: always
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 3600000
