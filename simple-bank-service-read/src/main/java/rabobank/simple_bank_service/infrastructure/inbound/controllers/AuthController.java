@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import rabobank.simple_bank_service.application.auth.JwtUtil;
 import rabobank.simple_bank_service.domain.model.UserDTO;
 import rabobank.simple_bank_service.application.services.UserService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 @RestController
 @RequestMapping("/auth")
@@ -37,4 +39,11 @@ public class AuthController {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         return jwtUtils.generateToken(userDetails.getUsername());
     }
+
+
+    public static void main(String[] args) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        System.out.println(encoder.encode("12334"));
+    }
+
 }

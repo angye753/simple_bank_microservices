@@ -18,6 +18,5 @@ public class UserDTO {
     private String role;
     private String contactNumber;
     private String address;
-    @JsonIgnore
     private String password;
 }

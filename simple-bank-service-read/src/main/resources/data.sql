@@ -88,9 +88,9 @@ CREATE INDEX idx_ledger_owner_account_id_view ON ledger_view(owner_account_id);
 CREATE INDEX idx_ledger_transaction_id_view ON ledger_view(transaction_id);
 
 INSERT INTO app_user (id, name, username, password, contact_number, address, role) VALUES
-('U1', 'Alice Doe', 'alice.doe', '$2a$10$6kT3E0/J0fYhoKIEBPNF/uwJ8K0rQ9L8nYykD6on1GzYpGmA4bnmO', '555-1001', 'Amsterdam', 'user'),
-('U2', 'Bob Smith', 'bob.smith', '$2a$10$6kT3E0/J0fYhoKIEBPNF/uwJ8K0rQ9L8nYykD6on1GzYpGmA4bnmO', '555-2002', 'Rotterdam', 'user'),
-('U3', 'Pedro Suarez', 'pedro.suarez', '$2a$10$6kT3E0/J0fYhoKIEBPNF/uwJ8K0rQ9L8nYykD6on1GzYpGmA4bnmO', '555-7654', 'Rotterdam', 'admin');
+('U1', 'Alice Doe', 'alice.doe', '$2a$10$SCosLY.wbz0akrGtrPXoK.1rzSPEHNJxMXvv/vBvdkNduwB1VHsRi', '555-1001', 'Amsterdam', 'user'),
+('U2', 'Bob Smith', 'bob.smith', '$2a$10$SCosLY.wbz0akrGtrPXoK.1rzSPEHNJxMXvv/vBvdkNduwB1VHsRi', '555-2002', 'Rotterdam', 'user'),
+('U3', 'Pedro Suarez', 'pedro.suarez', '$2a$10$SCosLY.wbz0akrGtrPXoK.1rzSPEHNJxMXvv/vBvdkNduwB1VHsRi', '555-7654', 'Rotterdam', 'admin');
 
 INSERT INTO account (id, account_description, app_user_id, balance, currency) VALUES
 ('RB12_12324', 'Alice Checking', 'U1', 5000.00, 'EU'),
