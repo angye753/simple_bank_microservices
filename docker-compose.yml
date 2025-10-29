@@ -19,10 +19,8 @@ services:
   db:
     image: postgres:17
     container_name: postgres
-    environment:
-      POSTGRES_DB: rabobank
-      POSTGRES_USER: 'admin'
-      POSTGRES_PASSWORD: 'mysecretpassword'
+    env_file:
+      - .env
     ports:
       - "5433:5432"
     volumes:
@@ -42,11 +40,6 @@ services:
       - .env
     depends_on:
       - db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/rabobank
-      SPRING_DATASOURCE_USERNAME: admin
-      SPRING_DATASOURCE_PASSWORD: mysecretpassword
-      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     tty: true
     ports:
       - "8083:8083"
@@ -60,11 +53,6 @@ services:
     depends_on:
       - kafka
       - db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/rabobank
-      SPRING_DATASOURCE_USERNAME: admin
-      SPRING_DATASOURCE_PASSWORD: mysecretpassword
-      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     tty: true
     ports:
       - "8082:8082"
@@ -78,11 +66,6 @@ services:
     depends_on:
       - kafka
       - db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/rabobank
-      SPRING_DATASOURCE_USERNAME: admin
-      SPRING_DATASOURCE_PASSWORD: mysecretpassword
-      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     tty: true
     ports:
       - "8081:8081"
