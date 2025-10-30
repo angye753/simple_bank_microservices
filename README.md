@@ -11,7 +11,7 @@ The system is designed around three microservices that together provide core ban
 
 - 💰 **Account Service** – Manages account balances and operations
 - 🔁 **Ledger Service** – Maintains a transaction log for auditing and reporting
-- 🔐 **Auth Service** – Handles authentication and authorization using JWT
+- 🔐 **Auth Service** – Handles authentication using JWT
 
 ---
 
@@ -43,4 +43,17 @@ The system is designed around three microservices that together provide core ban
 
 ---
 ## How to run locally in the root folder run command: 
-docker compose up --build
+
+`Create a .env file with these variables:
+POSTGRES_DB=customdb
+POSTGRES_USER=customUser
+POSTGRES_PASSWORD=customPassword
+SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/customdb
+SPRING_DATASOURCE_USERNAME=admin
+SPRING_DATASOURCE_PASSWORD=customPassword
+JWT_SECRET="jwt secret"
+SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092`
+
+After update your custom values, you can run 
+`docker compose up --build
+`
