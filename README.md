@@ -17,9 +17,10 @@ The system is designed around three microservices that together provide core ban
 
 ## 🧾 Features
 
-- **Check available balance** (Admin only)
+- **Check available balance** (Admin only): I understood per Balance, the current money available in each account.
+But more information can be added thanks to the Ledger table in case more information is needed
 - **Withdraw money** from an account
-- **Transfer funds** between accounts
+- **Transfer funds** between accounts in the same bank
 - **Authentication & Authorization** with JWT (symmetric signing, open to asymmetric key upgrade)
 - **Kafka-based data replication** for eventual consistency between services
 - **Auditing via Ledger table**, enabling transaction tracing and reporting
@@ -57,3 +58,7 @@ SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092`
 After update your custom values, you can run 
 `docker compose up --build
 `
+
+## Deployment -> CI/CD
+Pending to implement, in order to automate deployment process.
+Currently is being done manually. Available in a custom public server.
